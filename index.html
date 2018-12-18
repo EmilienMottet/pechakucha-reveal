@@ -12,6 +12,9 @@
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
+    <!-- mermaid -->
+    <link rel="stylesheet" href="css/mermaid.forest.css">
+
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -49,7 +52,19 @@
         <section>
 				    <section data-markdown data-background-size="contain" data-background-image="./img/linus-git.png" ></section>
 				    <section data-markdown data-background-size="contain" data-background-image="./img/floppy.gif" ></section>
-				    <section data-markdown data-background-size="cover" data-background-image="./img/bttf.jpeg" ></section>
+            <section class="diagram-slide" data-background-size="cover" data-background-image="./img/bttf.jpeg">
+                <span class="diagram-data" style="display:none;">
+                    graph TD;
+                    v2.0-->v3.0;
+                    v1.5-->v3.0;
+                    v1.0-->v2.0;
+                    v1.0-->v1.5;
+                </span>
+                <!-- Diagram will be displayed in this DIV -->
+                <div class="diagram-display">
+                </div>
+            </section>
+
 				    <section data-markdown data-background-size="cover" data-background-image="./img/github-ui.png" ></section>
         </section>
         <section>
@@ -61,12 +76,12 @@
             </section>
         </section>
 				<section data-markdown data-background-size="contain" data-background-image="./img/yunoquestion.jpg" ></section>
-
 			</div>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
+    <script src="lib/js/mermaid.min.js"></script>
 
 		<script>
 			// More info about config & dependencies:
@@ -75,6 +90,7 @@
 			Reveal.initialize({
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/mermaid/mermaid.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
